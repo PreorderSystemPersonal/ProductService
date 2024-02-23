@@ -1,0 +1,52 @@
+package com.example.ProductService.controller;
+
+import com.example.ProductService.Service.ProductService;
+import com.example.ProductService.dto.ProductDTO;
+import com.example.ProductService.dto.ProductRequestDTO;
+import com.example.ProductService.dto.ProductResponseDTO;
+import com.example.ProductService.entity.Product;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/ProductService")
+public class ProductController {
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    //상품 목록 조회
+    //1. 특정 시간에 열리는 예약구매 상품 조회
+//    @GetMapping("/product/id")
+//    public
+
+    //2. 일반 상품 조회
+    @GetMapping("/product/id")
+    public List<ProductDTO> getproducts(){
+        System.out.println("일반 상품 조회");
+        return productService.getProducts();
+    }
+
+    //상품 상세페이지 조회
+    @GetMapping("/product/details/{product_id}")
+    public Product getProduct(@PathVariable Long product_id) {
+        return productService.getProduct(product_id);
+    }
+
+
+    //상품의 남은 수량 조회
+//    @GetMapping("/produdct/count/{id}")
+//    public ProductCountDTO getProductCount(@PathVariable Long product_id) {
+//        return productService.getProductCount(product_id);
+//    }
+
+    //상품 등록
+    @PostMapping("/product/new")
+    public ProductResponseDTO createProdcut(@RequestBody ProductRequestDTO requestDTO){
+        return productService.createProduct(requestDTO);
+    }
+
+}
