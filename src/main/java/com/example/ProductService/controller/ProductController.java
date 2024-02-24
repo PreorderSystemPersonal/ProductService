@@ -37,15 +37,9 @@ public class ProductController {
     }
 
 
-    //상품의 남은 수량 조회
-//    @GetMapping("/produdct/count/{id}")
-//    public ProductCountDTO getProductCount(@PathVariable Long product_id) {
-//        return productService.getProductCount(product_id);
-//    }
-
     //상품 등록
     @PostMapping("/product/new")
-    public ProductResponseDTO createProdcut(@RequestBody ProductRequestDTO requestDTO){
+    public ProductResponseDTO createProduct(@RequestBody ProductRequestDTO requestDTO){
         return productService.createProduct(requestDTO);
     }
 
