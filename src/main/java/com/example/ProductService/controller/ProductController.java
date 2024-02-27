@@ -19,9 +19,6 @@ public class ProductController {
     }
 
     //상품 목록 조회
-    //1. 특정 시간에 열리는 예약구매 상품 조회
-//    @GetMapping("/product/id")
-//    public
 
     //2. 일반 상품 조회
     @GetMapping("/product/id")

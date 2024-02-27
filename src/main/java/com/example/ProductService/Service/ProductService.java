@@ -36,14 +36,6 @@ public class ProductService {
     }
 
 
-    //실제 상품 수량 조회
-//    @Transactional
-//    public ProductCountDTO getProductCount(Long productId) {
-//        ProductCountDTO productCountDTO = productCountRepository.findById(productId);
-//        return ProductCountDTO.toDto(productCountDTO);
-//
-//    }
-
     @Transactional
     public ProductResponseDTO createProduct(ProductRequestDTO requestDTO) {
         Product product = new Product(requestDTO);
